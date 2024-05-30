@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Furniture Website</title>
+    <!-- Font Awesome Cdn-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Font Awesome Cdn-->
+    <!-- Swiper -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+    <!-- Swiper -->
+    <!-- Style CSS link-->
+    <link rel="stylesheet" href="style.css">
+    <!-- Style CSS link-->
+</head>
+<body>
+
+    <!-- header -->
+
+    <section class="header">
+        <div class="logo"><a href="index.html"><img src="./images/logo.png" alt="" class="image"></a></div>
+
+        <nav class="navbar">
+            <a href="#home">home</a>
+            <a href="#about">about</a>
+            <a href="#services">services</a>
+            <a href="#product">product</a>
+            <a href="#team">team</a>
+            <a href="#contact">contact</a>
+        </nav>
+
+        <div class="icon">
+            <div id="cart-btn" class="fas fa-shopping-cart"></div>
+            <div id="account-btn" class="fas fa-user"></div>
+            <div id="menu-btn" class="fas fa-bars"></div>
+        </div>
+    </section>
+
+    <!-- header -->
+
+    <!-- shopping cart -->
+
+    <div class="cart-items-container">
+
+        <div id="close" class="fas fa-times"></div>
+
+        <div class="cart-item">
+            <span class="fas fa-times"></span>
+            <img src="images/cart1.png" alt="">
+            <div class="content">
+                <h3>cart item 01</h3>
+                <div class="price">$35.99/-</div>
+            </div>
+        </div>
+
+        <div class="cart-item">
+            <span class="fas fa-times"></span>
+            <img src="images/cart2.png" alt="">
+            <div class="content">
+                <h3>cart item 02</h3>
+                <div class="price">$35.99/-</div>
+            </div>
+        </div>
+
+        <div class="cart-item">
+            <span class="fas fa-times"></span>
+            <img src="images/cart3.png" alt="">
+            <div class="content">
+                <h3>cart item 03</h3>
+                <div class="price">$35.99/-</div>
+            </div>
+        </div>
+
+        <div class="cart-item">
+            <span class="fas fa-times"></span>
+            <img src="images/cart4.png" alt="">
+            <div class="content">
+                <h3>cart item 04</h3>
+                <div class="price">$35.99/-</div>
+            </div>
+        </div>
+        <a href="#" class="btn"> checkout</a>
+        
+    </div>
+    <!-- shopping cart -->
+
+    <!-- account form -->
+
+    <div class="account-form">
+        <div id="close-form" class="fas fa-times"></div>
+
+        <div class="buttons">
+            <span class="btn active login-btn">login</span>
+            <span class="btn register-btn">register</span>
+        </div>
+
+        <form action="" class="login-form active">
+            <h3>Login now</h3>
+            <input type="email" placeholder="enter your email" class="box">
+            <input type="password" placeholder="enter your password" class="box">
+            <div class="flex">
+                <input type="checkbox" name="" id="remember-me">
+                <label for="remember-me"> remember-me</label>
+                <a href="#">forgot password</a>
+            </div>
+            <input type="submit" value="login" class="btn">
+        </form>
+
+        <form action="" class="register-form">
+            <h3>register now</h3>
+            <input type="email" placeholder="enter your email" class="box">
+            <input type="password" placeholder="enter your password" class="box">
+            <input type="password" placeholder="confirm your password" class="box">
+            <input type="submit" value="login" class="btn">
+        </form>
+    </div>
+
+    <!-- account form -->
+
+    <!-- home -->
+
+    <section class="home" id="home">
+
+        <div class="swiper home-slider">
+            <div class="swiper-wrapper">
+
+                <div class="swiper-slide slide" style="background: url(images/home1.jpg) no-repeat;">
+                    <div class="content">
+                        <h3>we just make a perfect furniture for home</h3>
+                        <span>with you since 1965</span>
+                    </div>
+                </div>
+
+                <div class="swiper-slide slide" style="background: url(images/home2.jpg) no-repeat;">
+                    <div class="content">
+                        <h3>we just make a perfect furniture for home</h3>
+                        <span>with you since 1965</span>
+                    </div>
+                </div>
+
+                <div class="swiper-slide slide" style="background: url(images/home3.jpg) no-repeat;">
+                    <div class="content">
+                        <h3>we just make a perfect furniture for home</h3>
+                        <span>with you since 1965</span>
+                    </div>
+                </div>
+
+                <div class="swiper-slide slide" style="background: url(images/home4.jpg) no-repeat;">
+                    <div class="content">
+                        <h3>we just make a perfect furniture for home</h3>
+                        <span>with you since 1965</span>
+                    </div>
+                </div>
+
+                <div class="swiper-slide slide" style="background: url(images/home5.jpg) no-repeat;">
+                    <div class="content">
+                        <h3>we just make a perfect furniture for home</h3>
+                        <span>with you since 1965</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- home -->
+
+    <!-- about us -->
+
+    <section class="about" id="about">
+        <h1 class="heading"><span>about</span> us</h1>
+
+        <div class="row">
+            <div class="image">
+                <img src="images/about.jpg" alt="">
+            </div>
+
+            <div class="content">
+                <span>welcome to our shop</span>
+                <h3>we make your home more astonishing</h3>
+                <p>"At LuxeLoom, we're dedicated to crafting furniture that brings joy and comfort to homes. Explore our story and join us in the pursuit of home perfection."</p>
+                <a href="#" class="btn">read more</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- about us -->
+    <!-- services -->
+
+    <section class="services" id="services">
+
+        <h1 class="heading">our <span> services</span></h1>
+
+        <div class="box-container">
+
+            <div class="box">
+                <img src="images/service1.png" alt="">
+                <h3>product designing</h3>
+                <p>Discover the essence of LuxeLoom's design philosophy. Each piece embodies style, comfort, and functionality, elevating your living spaces effortlessly.</p>
+                <a href="#" class="btn">read more</a>
+            </div>
+
+            <div class="box">
+                <img src="images/service2.png" alt="">
+                <h3>product quality</h3>
+                <p>At LuxeLoom, quality is paramount. From material selection to manufacturing, we ensure excellence in every detail. Experience unmatched craftsmanship and durability with us.</p>
+                <a href="#" class="btn">read more</a>
+            </div>
+
+            <div class="box">
+                <img src="images/service3.png" alt="">
+                <h3>24/7 support</h3>
+                <p>Enjoy peace of mind with LuxeLoom's 24/7 support. Our dedicated team is here to assist you, day or night, ensuring your satisfaction with every purchase.</p>
+                <a href="#" class="btn">read more</a>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- services -->
+
+    <!-- product -->
+
+    <section class="product" id="product">
+
+        <h1 class="heading" id="heading">our <span> product</span></h1>
+
+        <div class="box-container">
+
+            <div class="box">
+                <a href="#" class="fas fa-heart"></a>
+                <a href="#" class="fas fa-eye"></a>
+                <img src="images/products1.png" alt="">
+                <h3>modern furniture</h3>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <div class="price">$40.99 <span>$45.99</span></div>
+                <a href="#" class="btn">add to cart</a>
+            </div>
+
+            <div class="box">
+                <a href="#" class="fas fa-heart"></a>
+                <a href="#" class="fas fa-eye"></a>
+                <img src="images/products2.png" alt="">
+                <h3>modern furniture</h3>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <div class="price">$35.99 <span>$40.99</span></div>
+                <a href="#" class="btn">add to cart</a>
+            </div>
+
+            <div class="box">
+                <a href="#" class="fas fa-heart"></a>
+                <a href="#" class="fas fa-eye"></a>
+                <img src="images/products3.png" alt="">
+                <h3>modern furniture</h3>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <div class="price">$56.99 <span>$60.99</span></div>
+                <a href="#" class="btn">add to cart</a>
+            </div>
+
+            <div class="box">
+                <a href="#" class="fas fa-heart"></a>
+                <a href="#" class="fas fa-eye"></a>
+                <img src="images/products4.png" alt="">
+                <h3>modern furniture</h3>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <div class="price">$70.99 <span>$75.99</span></div>
+                <a href="#" class="btn">add to cart</a>
+            </div>
+
+            <div class="box">
+                <a href="#" class="fas fa-heart"></a>
+                <a href="#" class="fas fa-eye"></a>
+                <img src="images/products5.png" alt="">
+                <h3>modern furniture</h3>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <div class="price">$100.99 <span>$130.99</span></div>
+                <a href="#" class="btn">add to cart</a>
+            </div>
+
+            <div class="box">
+                <a href="#" class="fas fa-heart"></a>
+                <a href="#" class="fas fa-eye"></a>
+                <img src="images/products6.png" alt="">
+                <h3>modern furniture</h3>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <div class="price">$70.99 <span>$68.99</span></div>
+                <a href="#" class="btn">add to cart</a>
+            </div>
+
+            <div class="box">
+                <a href="#" class="fas fa-heart"></a>
+                <a href="#" class="fas fa-eye"></a>
+                <img src="images/products7.png" alt="">
+                <h3>modern furniture</h3>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <div class="price">$140.99 <span>$160.99</span></div>
+                <a href="#" class="btn">add to cart</a>
+            </div>
+
+            <div class="box">
+                <a href="#" class="fas fa-heart"></a>
+                <a href="#" class="fas fa-eye"></a>
+                <img src="images/products8.png" alt="">
+                <h3>modern furniture</h3>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <div class="price">$80.99 <span>$85.99</span></div>
+                <a href="#" class="btn">add to cart</a>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- product -->
+
+    <!-- team -->
+
+    <section class="team" id="team">
+
+        <h1 class="heading">our <span>team</span></h1>
+
+        <div class="swiper team-slider">
+
+            <div class="swiper-wrapper">
+                
+                <div class="swiper-slide slide">
+                    <div class="image">
+                        <img src="images/team1.jpg" alt="">
+                        <div class="share">
+                            <a href="#" class="fab fa-facebook-f"></a>
+                            <a href="#" class="fab fa-twitter"></a>
+                            <a href="#" class="fab fa-instagram"></a>
+                            <a href="#" class="fab fa-linkedin"></a>
+                        </div>
+                    </div>
+                    <div class="content">
+                        <h3>william lucas</h3>
+                        <span>designer</span>
+                    </div>
+                </div>
+
+                <div class="swiper-slide slide">
+                    <div class="image">
+                        <img src="images/team2.jpg" alt="">
+                        <div class="share">
+                            <a href="#" class="fab fa-facebook-f"></a>
+                            <a href="#" class="fab fa-twitter"></a>
+                            <a href="#" class="fab fa-instagram"></a>
+                            <a href="#" class="fab fa-linkedin"></a>
+                        </div>
+                    </div>
+                    <div class="content">
+                        <h3>julia ellie</h3>
+                        <span>designer</span>
+                    </div>
+                </div>
+
+                <div class="swiper-slide slide">
+                    <div class="image">
+                        <img src="images/team3.jpg" alt="">
+                        <div class="share">
+                            <a href="#" class="fab fa-facebook-f"></a>
+                            <a href="#" class="fab fa-twitter"></a>
+                            <a href="#" class="fab fa-instagram"></a>
+                            <a href="#" class="fab fa-linkedin"></a>
+                        </div>
+                    </div>
+                    <div class="content">
+                        <h3>danial andrew</h3>
+                        <span>designer</span>
+                    </div>
+                </div>
+
+                <div class="swiper-slide slide">
+                    <div class="image">
+                        <img src="images/team4.jpg" alt="">
+                        <div class="share">
+                            <a href="#" class="fab fa-facebook-f"></a>
+                            <a href="#" class="fab fa-twitter"></a>
+                            <a href="#" class="fab fa-instagram"></a>
+                            <a href="#" class="fab fa-linkedin"></a>
+                        </div>
+                    </div>
+                    <div class="content">
+                        <h3>sopia zoey</h3>
+                        <span>designer</span>
+                    </div>
+                </div>
+
+                <div class="swiper-slide slide">
+                    <div class="image">
+                        <img src="images/team5.jpg" alt="">
+                        <div class="share">
+                            <a href="#" class="fab fa-facebook-f"></a>
+                            <a href="#" class="fab fa-twitter"></a>
+                            <a href="#" class="fab fa-instagram"></a>
+                            <a href="#" class="fab fa-linkedin"></a>
+                        </div>
+                    </div>
+                    <div class="content">
+                        <h3>david owen</h3>
+                        <span>designer</span>
+                    </div>
+                </div>
+
+                <div class="swiper-slide slide">
+                    <div class="image">
+                        <img src="images/team6.jpg" alt="">
+                        <div class="share">
+                            <a href="#" class="fab fa-facebook-f"></a>
+                            <a href="#" class="fab fa-twitter"></a>
+                            <a href="#" class="fab fa-instagram"></a>
+                            <a href="#" class="fab fa-linkedin"></a>
+                        </div>
+                    </div>
+                    <div class="content">
+                        <h3>evan samuel</h3>
+                        <span>designer</span>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- team -->
+
+    <!-- contact -->
+
+    <section class="contact" id="contact">
+
+        <h1 class="heading"> <span>contact</span> us</h1>
+
+        <div class="row">
+
+            <div class="image">
+                <img src="images/contact.png" alt="">
+            </div>
+
+            <form action="">
+                <h3>get in touch</h3>
+
+                <span>your name</span>
+                <input type="text" class="box">
+
+                <span>your number</span>
+                <input type="number" class="box">
+
+                <span>your email</span>
+                <input type="email" class="box">
+
+                <span>your message</span>
+                <textarea class="box" cols="30" rows="10"></textarea>
+
+                <input type="submit" value="send message" class="btn">
+
+            </form>
+
+        </div>
+
+    </section>
+
+    <!-- contact -->
+
+    <!-- credit -->
+
+    <section class="credit">
+        created by luxeloom | all right reserved!
+    </section>
+
+
+
+    <!-- credit -->
+
+    
+    <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+    <!-- custom js -->
+    <script src="script.js"></script>
+</body>
+</html>
