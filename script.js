@@ -38,14 +38,14 @@ let loginbtn = document.querySelector('.account-form .login-btn');
 
 registerbtn.onclick = () => {
     registerbtn.classList.add('active');
-    loginbtnbtn.classList.remove('active');
+    loginbtn.classList.remove('active');
     document.querySelector('.account-form .login-form').classList.remove('active');
     document.querySelector('.account-form .register-form').classList.add('active');
 }
 
 loginbtn.onclick = () => {
     registerbtn.classList.remove('active');
-    loginbtnbtn.classList.add('active');
+    loginbtn.classList.add('active');
     document.querySelector('.account-form .login-form').classList.add('active');
     document.querySelector('.account-form .register-form').classList.remove('active');
 };
