@@ -1,7 +1,12 @@
+let furnitureList = []
+let user = {}
+
+
 document.addEventListener('DOMContentLoaded', function() {
     fetch('http://localhost:8080/api/v1/furniture/all')
         .then(response => response.json())
         .then(data => {
+            furnitureList = data
             data.forEach(furniture => console.log(furniture))
             data.forEach(product => addProduct(product));
         })
@@ -26,6 +31,16 @@ $(document).ready(function() {
         console.log(email, password)
         register(email, password)
     })
+
+    $('#cart-btn').click(function () {
+        if(user) {
+            handleUserCart(user.cart)
+        }
+    });
+
+    if(localStorage.getItem('userId')){
+        updateUser()
+    }
 });
 
 
@@ -83,10 +98,14 @@ function addProduct(furniture) {
     button.href = '#';
     button.className = 'btn';
     button.textContent = 'add to cart';
+    button.setAttribute('data-furniture-id', furniture.id);
+
+    button.addEventListener('click', function (event) {
+        event.preventDefault(); // Prevent default anchor behavior
+        addToCart(furniture.id);
+    });
     box.appendChild(button);
-
     boxContainer.appendChild(box);
-
 }
 
 function login(email, password) {
@@ -122,8 +141,102 @@ function register(email, password) {
 }
 
 function authenticateSuccessful(response) {
+    user = response
     localStorage.setItem("userId", response.id)
     document.querySelector('.account-form .register-form').classList.remove('active');
     document.querySelector('.account-form .login-form').classList.remove('active');
-    document.querySelector('.account-form .user-page').classList.add('active');
+    // document.querySelector('.account-form .user-page').classList.add('active');
+}
+
+function addToCart(productId) {
+    console.log(productId);
+    $.ajax({
+        url: 'http:/localhost:8080/api/v1/user/addToCart',
+        type: 'POST',
+        data: {
+            userId: localStorage.getItem("userId"),
+            productId: productId
+        },
+        success: function (response) {
+            updateUser()
+        },
+        error: function (xhr, status, error) {
+            console.error('Error fetching user:', status, error);
+        }
+    });
+}
+
+function updateUser() {
+    $.ajax({
+        url: 'http:/localhost:8080/api/v1/user',
+        type: 'GET',
+        data: {id: localStorage.getItem("userId")},
+        success: function (response) {
+            console.log("display cart", response)
+            user = response
+            handleUserCart(user.cart)
+        },
+        error: function (xhr, status, error) {
+            console.error('Error fetching user:', status, error);
+        }
+    });
+}
+
+function handleUserCart(cart) {
+    const cartItems = cart.map(furnitureId => {
+        return furnitureList.find(item => item.id === furnitureId);
+    }).filter(item => item !== undefined);
+
+    displayCartItems(cartItems);
+}
+
+function removeFromCart(productId) {
+    console.log(productId);
+    $.ajax({
+        url: 'http:/localhost:8080/api/v1/user/removeFromCart',
+        type: 'POST',
+        data: {
+            userId: localStorage.getItem("userId"),
+            productId: productId
+        },
+        success: function (response) {
+            updateUser()
+            typeof user.cart
+            // handleUserCart(user.cart.filter(furnitureId => furnitureId !== productId));
+        },
+        error: function (xhr, status, error) {
+            console.error('Error fetching user:', status, error);
+        }
+    });
+
+}
+
+
+function displayCartItems(cartItems) {
+    const cartContainer = $('.cart-items-container');
+
+    const cartItemsList = $('#cart-items-list');
+    cartItemsList.empty(); // Clear the existing list
+
+    // Populate the cart container with the cart items
+    cartItems.forEach(item => {
+        const cartItem = $('<div>').addClass('cart-item');
+
+        const removeBtn = $('<span>').addClass('fas fa-times').click(() => removeFromCart(item.id));
+        cartItem.append(removeBtn);
+
+        const img = $('<img>').attr('src', item.imageUrls[0]).attr('alt', item.name);
+        cartItem.append(img);
+
+        const content = $('<div>').addClass('content');
+        const title = $('<h3>').text(item.name);
+        const price = $('<div>').addClass('price').text(`$${item.price.toFixed(2)}`);
+        content.append(title).append(price);
+
+        cartItem.append(content);
+
+        cartItemsList.append(cartItem);
+    });
+
+    cartContainer.show();
 }
