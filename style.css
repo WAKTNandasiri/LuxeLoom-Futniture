@@ -293,6 +293,36 @@ section{
     width: 100%;
 }
 
+/* profile */
+.account-form .box-container{
+    border: 0.1rem solid var(--main-color);
+    border-radius: 2rem;
+    padding: 5rem; 
+    text-align: center;
+    
+}
+
+.account-form .box-container img{
+    height: 12rem;
+    width: 12rem;
+    margin-bottom: 1rem;
+    border-radius: 50%;
+    border: 3px solid var(--primary-color);
+}
+
+.account-form .profile-details span{
+    font-size: 2rem;
+    color: var(--light-black);
+}
+
+account-form .profile-details h3{
+    font-size: 2rem;
+    color: var(--light-black);
+    
+}
+
+/* profile */
+
 /* home */
 
 .home{
