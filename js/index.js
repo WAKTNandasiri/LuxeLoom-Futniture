@@ -21,9 +21,10 @@ $(document).ready(function() {
 
     $(".register-form").submit(function (event) {
         event.preventDefault();
-        console.log("register")
-
-
+        var email = $(".register-form input[name='email']").val();
+        var password = $(".register-form input[name='password']").val();
+        console.log(email, password)
+        register(email, password)
     })
 });
 
@@ -93,12 +94,36 @@ function login(email, password) {
         url: "http://localhost:8080/api/v1/login",
         type: "POST",
         contentType: "application/json",
-        data: JSON.stringify({ username: email, password: password }),
+        data: JSON.stringify({ email: email, password: password }),
         success: function (response) {
             console.log("Login successful", response);
+            authenticateSuccessful(response)
         },
         error: function (xhr, status, error) {
             console.log("Login failed", status, error);
         }
     });
+}
+
+function register(email, password) {
+    $.ajax({
+        url: "http://localhost:8080/api/v1/user",
+        type: "POST",
+        contentType: "application/json",
+        data: JSON.stringify({ email: email, password: password }),
+        success: function (response) {
+            console.log("Login successful", response);
+            authenticateSuccessful(response)
+        },
+        error: function (xhr, status, error) {
+            console.log("Login failed", status, error);
+        }
+    });
+}
+
+function authenticateSuccessful(response) {
+    localStorage.setItem("userId", response.id)
+    document.querySelector('.account-form .register-form').classList.remove('active');
+    document.querySelector('.account-form .login-form').classList.remove('active');
+    document.querySelector('.account-form .user-page').classList.add('active');
 }

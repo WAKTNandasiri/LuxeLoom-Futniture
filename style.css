@@ -246,6 +246,14 @@ section{
     display: none;
 }
 
+.account-form .user-page {
+    display: none;
+}
+
+.account-form .user-page.active {
+    display: block;
+}
+
 .account-form form.active{
     display: block;
 }
