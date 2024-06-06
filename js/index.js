@@ -8,6 +8,26 @@ document.addEventListener('DOMContentLoaded', function() {
         .catch(error => console.error('Error fetching products:', error));
 });
 
+$(document).ready(function() {
+    $(".login-form").submit(function(event) {
+        event.preventDefault();
+        console.log("login");
+
+        var email = $(".login-form input[name='email']").val();
+        var password = $(".login-form input[name='password']").val();
+        console.log(email + " " + password);
+        login(email, password)
+    });
+
+    $(".register-form").submit(function (event) {
+        event.preventDefault();
+        console.log("register")
+
+
+    })
+});
+
+
 function addProduct(furniture) {
     const productSection = document.querySelector('#product');
     const boxContainer = productSection.querySelector('.box-container');
@@ -66,4 +86,19 @@ function addProduct(furniture) {
 
     boxContainer.appendChild(box);
 
+}
+
+function login(email, password) {
+    $.ajax({
+        url: "http://localhost:8080/api/v1/login",
+        type: "POST",
+        contentType: "application/json",
+        data: JSON.stringify({ username: email, password: password }),
+        success: function (response) {
+            console.log("Login successful", response);
+        },
+        error: function (xhr, status, error) {
+            console.log("Login failed", status, error);
+        }
+    });
 }
