@@ -18,8 +18,8 @@ $(document).ready(function() {
         event.preventDefault();
         console.log("login");
 
-        var email = $(".login-form input[name='email']").val();
-        var password = $(".login-form input[name='password']").val();
+        const email = $(".login-form input[name='email']").val();
+        const password = $(".login-form input[name='password']").val();
         console.log(email + " " + password);
         login(email, password)
     });
@@ -155,11 +155,10 @@ function register(user, file) {
 }
 
 function authenticateSuccessful() {
-    // user = response
-    // localStorage.setItem("userId", response.id)
     document.querySelector('.account-form .register-form').classList.remove('active');
     document.querySelector('.account-form .login-form').classList.remove('active');
     let boxContainer = document.querySelector('.account-form .box-container');
+    boxContainer.innerHTML = ""
     boxContainer.classList.add('active');
     document.querySelector('.account-form .buttons').style.display = 'none';
 
@@ -183,6 +182,9 @@ function authenticateSuccessful() {
     const logout = document.createElement("a")
     logout.className = "btn"
     logout.innerText = "Logout"
+    logout.addEventListener('click', function (event) {
+        logoutUser()
+    });
     boxContainer.appendChild(logout)
 
 }
@@ -282,4 +284,13 @@ function displayCartItems(cartItems) {
     });
 
     cartContainer.show();
+}
+
+function logoutUser() {
+    globalUser = {}
+    localStorage.removeItem("userId")
+    document.querySelector('.account-form .login-form').classList.add('active');
+    document.querySelector('.account-form .box-container').classList.remove('active');
+    document.querySelector('.account-form .buttons').style.display = 'block';
+
 }
