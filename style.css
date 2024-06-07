@@ -240,17 +240,18 @@ section{
     color: var(--white);
 }
 
+
 .account-form form{
     border: 0.1rem solid var(--primary-color);
     padding: 2rem;
     display: none;
 }
 
-.account-form .user-page {
+.account-form .box-container {
     display: none;
 }
 
-.account-form .user-page.active {
+.account-form .box-container.active {
     display: block;
 }
 

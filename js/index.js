@@ -1,5 +1,5 @@
 let furnitureList = []
-let user = {}
+let globalUser = {}
 
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -25,21 +25,27 @@ $(document).ready(function() {
     });
 
     $(".register-form").submit(function (event) {
-        event.preventDefault();
-        var email = $(".register-form input[name='email']").val();
-        var password = $(".register-form input[name='password']").val();
-        console.log(email, password)
-        register(email, password)
+        event.preventDefault(); // Prevent the default form submission
+        const user = {
+            name: $('.register-form input[name="name"]').val(),
+            email: $('.register-form input[name="email"]').val(),
+            password: $('.register-form input[name="password"]').val()
+        };
+        const  file = $('input[name="photo"]')[0].files[0]
+        register(user, file)
     })
 
     $('#cart-btn').click(function () {
-        if(user) {
-            handleUserCart(user.cart)
+        if(globalUser) {
+            handleUserCart(globalUser.cart)
         }
     });
 
     if(localStorage.getItem('userId')){
         updateUser()
+    }
+    else {
+        authenticateFailed()
     }
 });
 
@@ -116,6 +122,8 @@ function login(email, password) {
         data: JSON.stringify({ email: email, password: password }),
         success: function (response) {
             console.log("Login successful", response);
+            globalUser = response
+            localStorage.setItem('userId', globalUser.id)
             authenticateSuccessful(response)
         },
         error: function (xhr, status, error) {
@@ -124,28 +132,63 @@ function login(email, password) {
     });
 }
 
-function register(email, password) {
+function register(user, file) {
+    var formData = new FormData();
+    formData.append('user', new Blob([JSON.stringify(user)], { type: 'application/json' }));
+    formData.append('file', file);
     $.ajax({
-        url: "http://localhost:8080/api/v1/user",
-        type: "POST",
-        contentType: "application/json",
-        data: JSON.stringify({ email: email, password: password }),
-        success: function (response) {
+        url: 'http://localhost:8080/api/v1/user',
+        type: 'POST',
+        data: formData,
+        processData: false,
+        contentType: false,
+        success: function(response) {
             console.log("Login successful", response);
+            globalUser = response
+            localStorage.setItem('userId', user.id)
             authenticateSuccessful(response)
         },
-        error: function (xhr, status, error) {
-            console.log("Login failed", status, error);
+        error: function(xhr, status, error) {
+            console.error('Error uploading file:', status, error);
         }
     });
 }
 
-function authenticateSuccessful(response) {
-    user = response
-    localStorage.setItem("userId", response.id)
+function authenticateSuccessful() {
+    // user = response
+    // localStorage.setItem("userId", response.id)
     document.querySelector('.account-form .register-form').classList.remove('active');
     document.querySelector('.account-form .login-form').classList.remove('active');
-    // document.querySelector('.account-form .user-page').classList.add('active');
+    let boxContainer = document.querySelector('.account-form .box-container');
+    boxContainer.classList.add('active');
+    document.querySelector('.account-form .buttons').style.display = 'none';
+
+    const image = document.createElement("img")
+    image.alt = "Profile Photo"
+    image.src = globalUser.imageUrl;
+    boxContainer.appendChild(image)
+
+    const profileDetails = document.createElement("div")
+    profileDetails.className = "profile-details"
+
+    const name = document.createElement("span")
+    name.innerText = globalUser.name;
+    profileDetails.appendChild(name)
+
+    const email = document.createElement("h3")
+    email.innerHTML = globalUser.email
+    profileDetails.appendChild(email)
+    boxContainer.appendChild(profileDetails)
+
+    const logout = document.createElement("a")
+    logout.className = "btn"
+    logout.innerText = "Logout"
+    boxContainer.appendChild(logout)
+
+}
+
+function authenticateFailed() {
+    document.querySelector('.account-form .login-form').classList.add('active');
 }
 
 function addToCart(productId) {
@@ -173,8 +216,9 @@ function updateUser() {
         data: {id: localStorage.getItem("userId")},
         success: function (response) {
             console.log("display cart", response)
-            user = response
-            handleUserCart(user.cart)
+            globalUser = response
+            handleUserCart(globalUser.cart)
+            authenticateSuccessful()
         },
         error: function (xhr, status, error) {
             console.error('Error fetching user:', status, error);
@@ -201,7 +245,6 @@ function removeFromCart(productId) {
         },
         success: function (response) {
             updateUser()
-            typeof user.cart
             // handleUserCart(user.cart.filter(furnitureId => furnitureId !== productId));
         },
         error: function (xhr, status, error) {
