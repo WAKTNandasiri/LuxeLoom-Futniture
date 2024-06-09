@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Furniture Website</title>
+    <!-- Font Awesome Cdn-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Font Awesome Cdn-->
+    <!-- Style CSS link-->
+    <link rel="stylesheet" href="style.css">
+    <!-- Style CSS link-->
+</head>
+<body>
+
+    <!-- header -->
+
+    <section class="header">
+        <div class="logo"><a href="index.html"><img src="./images/logo.png" alt="" class="image"></a></div>
+    </section>
+
+    <section class="checkout" id="checkout">
+        <h1 class="heading">Shopping <span>cart</span></h1>
+        <div class="row">
+            <form action="">
+                <h2>personal details</h2>
+                <div class="row">
+                    <div class="input-group">
+                        <label for="fname">first name</label>
+                        <input type="text" name="firstname" placeholder="first name">
+                    </div>
+                    <div class="input-group">
+                        <label for="lname">last name</label>
+                        <input type="text" name="lastname" placeholder="last name">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-group">
+                        <label for="email">e-mail address</label>
+                        <input type="text" name="email" placeholder="email">
+                    </div>
+                    <div class="input-group">
+                        <label for="phone">phone number</label>
+                        <input type="tel" name="phone-num" placeholder="phone number">
+                    </div>
+                </div>
+                <h2>shipping details</h2>
+                <div class="row">
+                    <div class="input-group">
+                        <label for="address">street address</label>
+                        <input type="text" name="address" placeholder="address">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-group">
+                        <label for="city">city</label>
+                        <input type="text" name="city" placeholder="city">
+                    </div>
+                    <div class="input-group">
+                        <label for="code">postal code</label>
+                        <input type="text" name="postalcode" placeholder="postal code">
+                    </div>
+                </div>
+                <h2>payment details</h2>
+                <div class="row">
+                    <div class="input-group">
+                        <label for="payment">payment method</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-group">
+                        <input type="radio" id="visa" name="payment" value="visa">
+                        <label for="visa">visa</label>
+                    </div>
+                    <div class="input-group">
+                        <input type="radio" id="ccnum" name="cardnumber" value="creditcard">
+                        <label for="creditcard">credit card</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-group">
+                        <label for="card">card number</label>
+                        <input type="text" name="cardnum" placeholder="0000 0000 0000 0000">
+                    </div>
+                    <div class="input-group">
+                        <label for="date">expiration date</label>
+                        <input type="text" name="date" placeholder="mm/yy">
+                    </div>
+                    <div class="input-group">
+                        <label for="cvv">cvv</label>
+                        <input type="text" name="cvv" placeholder="...">
+                    </div>
+                </div>
+            </form>
+            <div class="order">
+                <h2>your order</h2>
+                <div class="row">
+                    <div class="order-items">
+                        <div class="image-container">
+                            <div class="image">
+                                <img src="images/cart1.png" alt="">
+                            </div>
+                            <div class="description">
+                                <span>modern furniture</span>
+                                <span>daisy color</span>
+                            </div>
+                        </div>
+                        <div class="quantity">
+                            <label for="quantity">quantity</label>
+                            <input type="number" name="qty" required min="1" value="1" max="99" maxlength="2">
+                        </div>
+                        <div class="total-price">$35.99</div>
+                    </div>
+                </div>
+                <div class="total">
+                    <div class="row">
+                        <span>sub total</span>
+                        <h3>$35.99</h3>
+                    </div>
+                    <div class="row">
+                        <span>delivery</span>
+                        <h3>$10.99</h3>
+                    </div>
+                    <div class="row">
+                        <span>discount</span>
+                        <h3>$5.99</h3>
+                    </div>
+                    <div class="row">
+                        <h2>total</h2>
+                        <h2>$40.00</h2>
+                    </div>
+                    <a href="#" class="btn">proceed</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    
+    
+
+    <!-- header -->
+    <!-- custom js -->
+    <script src="script.js"></script>
+
+</body>
+</html>

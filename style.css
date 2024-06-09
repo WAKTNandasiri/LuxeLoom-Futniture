@@ -693,6 +693,174 @@ account-form .profile-details h3{
 
 /* credit */
 
+
+/* checkout */
+
+
+.checkout {
+    padding: 20px;
+}
+
+
+
+.checkout .row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.checkout .row > * {
+    flex: 0 0 45%; 
+    padding: 0 10px;
+}
+
+.checkout form input[name="address"] {
+    width: calc(100% + 23.5rem); 
+}
+
+.checkout .row form {
+    flex: 1;
+    border: 0.1rem solid var(--main-color);
+    padding: 2rem;
+}
+
+.checkout h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.checkout .input-group {
+    margin-bottom: 10px;
+}
+
+.checkout label {
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+.checkout input[type="text"],
+.checkout input[type="tel"],
+.checkout input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 1.8rem;
+    font-weight: 500;
+    text-transform: capitalize;
+}
+
+input[name="date"]::placeholder {
+    text-transform: uppercase;
+}
+
+label[for="cvv"] {
+    text-transform: uppercase;
+}
+
+input[name="cvv"]::placeholder {
+    font-size: 4rem;
+    letter-spacing: .5rem;
+}
+
+.checkout input[type="radio"] {
+    margin-right: 5px;
+}
+
+.checkout .order .row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.checkout .order h2{
+    padding: 2rem;
+}
+
+.checkout .order {
+    flex: 0 0 45%;
+    border: 0.1rem solid var(--main-color);
+    margin-left: 2rem;
+}
+
+.checkout .order-items {
+    display: flex;
+    align-items: center;
+    padding: 2rem;
+    justify-content: space-between;
+}
+
+.checkout .order-items .image {
+    flex: 0 0 30%;
+}
+
+.checkout .order-items .image img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.checkout .order-items .description {
+    flex: 1;
+    margin-left: 2rem;
+}
+
+.checkout .order-items .description span {
+    display: block;
+    width: 18rem;
+    font-size: 1.8rem;
+}
+
+.checkout .quantity {
+    margin-left: 30rem;
+}
+
+.checkout .quantity label {
+    display: block;
+}
+
+.checkout .quantity input[type="number"] {
+    width: 5rem;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.checkout .total-price {
+    margin-left: 30rem;
+    font-weight: bold;
+    font-size: 20px; 
+}
+
+.checkout .total .row{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.checkout .total .row span{
+    font-size: 1.8rem;
+    color: var(--light-black);
+}
+
+.checkout .total .row h3{
+    font-size: 2rem;
+    font-weight: 500;
+}
+
+.checkout .total .row h2{
+    font-size: 3rem;
+}
+
+.checkout .total .btn{
+    margin-left: 20rem;
+}
+
+
+/* checkout */
+
+
+
 @media (max-width:991px){
 
     html{
